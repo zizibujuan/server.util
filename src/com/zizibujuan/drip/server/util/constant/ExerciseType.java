@@ -1,4 +1,4 @@
-package com.zizibujuan.drip.server.util;
+package com.zizibujuan.drip.server.util.constant;
 
 /**
  * 题型

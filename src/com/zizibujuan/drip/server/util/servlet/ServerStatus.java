@@ -6,7 +6,7 @@ import java.util.Map;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-import com.zizibujuan.drip.server.util.ServerConstants;
+import com.zizibujuan.drip.server.util.constant.ServerConstants;
 import com.zizibujuan.drip.server.util.json.JsonUtil;
 
 /**

@@ -1,4 +1,4 @@
-package com.zizibujuan.drip.server.util;
+package com.zizibujuan.drip.server.util.constant;
 
 /**
  * 服务器端常量类

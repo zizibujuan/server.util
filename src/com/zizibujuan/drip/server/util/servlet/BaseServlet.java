@@ -16,8 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.drip.server.util.Activator;
-import com.zizibujuan.drip.server.util.HttpConstants;
 import com.zizibujuan.drip.server.util.PageInfo;
+import com.zizibujuan.drip.server.util.constant.HttpConstants;
 
 /**
  * 项目中所有servlet的基类

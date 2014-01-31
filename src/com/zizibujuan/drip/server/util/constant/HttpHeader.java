@@ -1,4 +1,4 @@
-package com.zizibujuan.drip.server.util;
+package com.zizibujuan.drip.server.util.constant;
 /**
  * http请求/返回头信息的key值
  * @author jinzw

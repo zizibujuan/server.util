@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-import com.zizibujuan.drip.server.util.HttpConstants;
 import com.zizibujuan.drip.server.util.PageInfo;
+import com.zizibujuan.drip.server.util.constant.HttpConstants;
 import com.zizibujuan.drip.server.util.json.JsonUtil;
 
 /**

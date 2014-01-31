@@ -1,4 +1,4 @@
-package com.zizibujuan.drip.server.util;
+package com.zizibujuan.drip.server.util.constant;
 
 /**
  * 使用其他网站登录该网站时用到的常量的key
