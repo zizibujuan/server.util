@@ -18,8 +18,8 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zizibujuan.drip.server.exception.dao.DataAccessException;
 import com.zizibujuan.drip.server.util.PageInfo;
+import com.zizibujuan.drip.server.util.dao.exception.DataAccessException;
 
 /**
  * 与数据库进行交互的工具集
@@ -684,6 +684,37 @@ public abstract class DatabaseUtil {
 		}finally{
 			safeClose(con, rst, pst);
 		}
+	}
+	
+	/**
+	 * 查询出单条记录，并将其转换为pojo对象
+	 * 
+	 * @param con 数据库连接
+	 * @param sql sql语句
+	 * @param rowMapper 返回列映射器
+	 * @param inParams 输入参数
+	 * @return pojo对象, 如果没有查到则返回null。
+	 */
+	public static <T> T queryForObject(Connection con, String sql, RowMapper<T> rowMapper, Object... inParams){
+		logger.debug("Query for object [" + sql + "]");
+		PreparedStatement pst = null;
+		ResultSet rst = null;
+		try{
+			pst = con.prepareStatement(sql);
+			setParams(pst, inParams);
+			rst = pst.executeQuery();
+			if(rst.next()){
+				return rowMapper.mapRow(rst, 1);
+			}else{
+				return null;
+			}
+		}catch(SQLException e){
+			logger.error("查询sql出错，sql语句是:" + sql, e);
+		}finally{
+			closeResultSet(rst);
+			closeStatement(pst);
+		}
+		return null;
 	}
 	
 	/**
