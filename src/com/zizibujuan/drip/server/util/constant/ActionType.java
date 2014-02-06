@@ -21,6 +21,11 @@ public abstract class ActionType {
 	public static final String EDIT_EXERCISE_DRAFT = "0002";
 	
 	/**
+	 * 删除习题草稿
+	 */
+	public static final String DELETE_EXERCISE_DRAFT = "0003";
+	
+	/**
 	 * 发布习题
 	 */
 	public static final String PUBLISH_EXERCISE = "0011";
