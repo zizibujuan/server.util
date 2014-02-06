@@ -747,6 +747,27 @@ public abstract class DatabaseUtil {
 		return result;
 	}
 	
+	public static <T> List<T> query(Connection con, String sql, PreparedStatementSetter pss, RowMapper<T> rowMapper){
+		List<T> result = new ArrayList<T>();
+		PreparedStatement pst = null;
+		ResultSet rst = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pss.setValues(pst);
+			rst = pst.executeQuery();
+			while(rst.next()){
+				T t = rowMapper.mapRow(rst, 1);
+				result.add(t);
+			}
+		}catch(SQLException e){
+			throw new DataAccessException(e);
+		}finally{
+			closeResultSet(rst);
+			closeStatement(pst);
+		}
+		return result;
+	}
+	
 	public static <T> List<T> query(DataSource ds, String sql, RowMapper<T> rowMapper, PageInfo pageInfo, Object... inParams){
 		List<T> result = new ArrayList<T>();
 		PreparedStatement stmt = null;
