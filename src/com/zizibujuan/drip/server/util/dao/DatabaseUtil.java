@@ -435,7 +435,6 @@ public abstract class DatabaseUtil {
 	public static int update(DataSource ds, String sql, Object...inParams){
 		Connection con = null;
 		PreparedStatement pst = null;
-		ResultSet rst = null;
 		int result = 0;
 		try {
 			con = ds.getConnection();
@@ -453,7 +452,20 @@ public abstract class DatabaseUtil {
 			safeRollback(con);
 			throw new DataAccessException(e);
 		}finally{
-			safeClose(con, rst, pst);
+			safeClose(con, null, pst);
+		}
+	}
+	
+	public static int update(Connection con, String sql, PreparedStatementSetter setter) throws SQLException{
+		PreparedStatement pst = null;
+		int result = 0;
+		try {
+			pst = con.prepareStatement(sql);
+			setter.setValues(pst);
+			result = pst.executeUpdate();
+			return result;
+		}finally{
+			closeStatement(pst);
 		}
 	}
 	
