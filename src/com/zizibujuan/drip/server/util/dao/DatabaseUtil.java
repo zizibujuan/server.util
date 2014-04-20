@@ -450,6 +450,7 @@ public abstract class DatabaseUtil {
 			
 		}catch(SQLException e){
 			safeRollback(con);
+			logger.error("执行更新操作失败", e);
 			throw new DataAccessException(e);
 		}finally{
 			safeClose(con, null, pst);
