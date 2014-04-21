@@ -1,10 +1,7 @@
-package com.zizibujuan.drip.server.util.servlet;
+package com.zizibujuan.drip.server.util.servlet.validate;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 服务器端校验器
@@ -15,13 +12,13 @@ import java.util.Map;
 public class Validator {
 
 	// 以下代码借鉴自struts2
-	private Collection<String> servletErrors; // 存储servlet级别的错误信息
+	private ServletError servletErrors; // 存储servlet级别的错误信息
 	private Collection<String> servletMessages; // 存储servlet级别的提示信息
-	private Map<String, List<String>> fieldErrors; // 存储字段级别的错误信息
+	private FieldError fieldErrors; // 存储字段级别的错误信息
 
-	public Collection<String> getServletErrors() {
+	public ServletError getServletErrors() {
 		if (servletErrors == null) {
-			servletErrors = new ArrayList<String>();
+			servletErrors = new ServletError();
 		}
 		return servletErrors;
 	}
@@ -33,20 +30,20 @@ public class Validator {
 		return servletMessages;
 	}
 
-	public Map<String, List<String>> getFieldErrors() {
+	public FieldError getFieldErrors() {
 		if (fieldErrors == null) {
-			fieldErrors = new LinkedHashMap<String, List<String>>();
+			fieldErrors = new FieldError();
 		}
 		return fieldErrors;
 	}
 
 	// 判断是否有错误信息
 	public boolean hasServletErrors() {
-		return servletErrors != null && !servletErrors.isEmpty();
+		return servletErrors != null && !servletErrors.hasErrors();
 	}
 
 	public boolean hasFieldErrors() {
-		return fieldErrors != null && !fieldErrors.isEmpty();
+		return fieldErrors != null && fieldErrors.hasErrors();
 	}
 
 	public boolean hasErrors() {
@@ -66,14 +63,8 @@ public class Validator {
 		getServletMessages().add(message);
 	}
 
-	public void addFieldError(String fieldName, String error) {
-		Map<String, List<String>> errors = getFieldErrors();
-		List<String> fieldError = errors.get(fieldName);
-		if (fieldError == null) {
-			fieldError = new ArrayList<String>();
-			errors.put(fieldName, fieldError);
-		}
-		fieldError.add(error);
+	public void addFieldError(String fieldName, String message) {
+		getFieldErrors().add(fieldName, message);
 	}
 
 }
