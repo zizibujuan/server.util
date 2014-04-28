@@ -33,8 +33,10 @@ public abstract class ResponseUtil {
 		resp.setHeader("Cache-Control", "no-cache"); //$NON-NLS-1$ //$NON-NLS-2$
 		resp.setHeader("Cache-Control", "no-store"); //$NON-NLS-1$ //$NON-NLS-2$
 		resp.setContentType(HttpConstants.CONTENT_TYPE_JSON);
-		String response = JsonUtil.toJson(result);
-		resp.getWriter().print(response);
+		if(result != null){
+			String response = JsonUtil.toJson(result);
+			resp.getWriter().print(response);
+		}
 	}
 	
 	/**
@@ -71,7 +73,7 @@ public abstract class ResponseUtil {
 		if(pageInfo != null){
 			resp.setHeader("Content-Range", pageInfo.toString());
 		}
-		toJSON(req, resp, list,HttpServletResponse.SC_OK);
+		toJSON(req, resp, list, HttpServletResponse.SC_OK);
 	}
 	
 	/**
