@@ -148,7 +148,7 @@ public abstract class DatabaseUtil {
 	}
 	
 	private static int getCount(DataSource ds, String sql, Object... params){
-		String sqlCount = "select count(*) from ( " + sql + " )";
+		String sqlCount = "select count(*) from ( " + sql + " ) t";
 		return queryForInt(ds, sqlCount, params);
 	}
 	
@@ -789,7 +789,7 @@ public abstract class DatabaseUtil {
 		try {
 			String sqlPage = sql;
 			if(pageInfo != null){
-				 sqlPage += "limit "+pageInfo.getStart()+" "+(pageInfo.getEnd()-pageInfo.getStart());
+				 sqlPage += " limit "+pageInfo.getStart()+","+(pageInfo.getEnd()-pageInfo.getStart());
 			}
 			con = ds.getConnection();
 			con.setAutoCommit(false);
