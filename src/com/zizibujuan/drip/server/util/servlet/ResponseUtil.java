@@ -2,6 +2,7 @@ package com.zizibujuan.drip.server.util.servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,7 +68,7 @@ public abstract class ResponseUtil {
 	 * @param list 转换的列表
 	 * @throws IOException
 	 */
-	public static void toJSON(HttpServletRequest req, HttpServletResponse resp, PageInfo pageInfo, Object list) throws IOException{
+	public static void toJSON(HttpServletRequest req, HttpServletResponse resp, PageInfo pageInfo, List<?> list) throws IOException{
 		if(pageInfo != null){
 			resp.setHeader("Content-Range", pageInfo.toString());
 		}
