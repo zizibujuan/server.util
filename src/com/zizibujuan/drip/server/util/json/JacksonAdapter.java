@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.util.Collection;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +12,6 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.zizibujuan.drip.server.exception.json.JSONAccessException;
 
 /**
@@ -24,6 +23,7 @@ public class JacksonAdapter implements Json {
 	private ObjectMapper objectMapper;
 	public JacksonAdapter(){
 		objectMapper = new ObjectMapper();
+		objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm"));
 	}
 	
 	
