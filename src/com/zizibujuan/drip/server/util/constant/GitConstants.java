@@ -6,15 +6,9 @@ package com.zizibujuan.drip.server.util.constant;
  * @since 0.0.1
  */
 public abstract class GitConstants {
-	
-	/**
-	 * key值，git仓库的根目录
-	 */
-	public static final String KEY_GIT_ROOT = "git.repo.root";
-	
 	/**
 	 * doc git仓库的根目录
 	 */
-	public static final String KEY_DOC_GIT_ROOT = "git.repo.doc.root";
+	public static final String KEY_DOC_REPO_ROOT = "git.repo.doc.root";
 	
 }
