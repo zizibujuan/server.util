@@ -1,4 +1,4 @@
-package com.zizibujuan.drip.server.util.dao;
+package com.zizibujuan.drip.server.util;
 
 import java.util.UUID;
 
