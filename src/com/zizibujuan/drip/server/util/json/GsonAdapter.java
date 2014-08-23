@@ -64,7 +64,6 @@ public class GsonAdapter implements Json {
 				.serializeNulls()
 				.registerTypeAdapter(java.sql.Date.class, new SqlDateJsonSerializer())
 				.registerTypeAdapter(java.sql.Timestamp.class,new SqlTimestampSerializer())
-				.registerTypeAdapterFactory(GsonObjectTypeAdapter.FACTORY)
 				.create();
 	}
 	
