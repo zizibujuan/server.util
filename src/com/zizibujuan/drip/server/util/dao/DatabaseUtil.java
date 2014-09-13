@@ -231,8 +231,8 @@ public abstract class DatabaseUtil {
 		return result;
 	}
 	
-	public static int queryForInt(DataSource ds, String sql, Object... params) {
-		int result=0;
+	public static Integer queryForInt(DataSource ds, String sql, Object... params) {
+		Integer result = null;
 		PreparedStatement stmt = null;
 		ResultSet rst = null;
 		Connection con = null;
