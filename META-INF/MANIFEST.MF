@@ -28,7 +28,8 @@ Bundle-ClassPath: .,
  lib/struts2-json-plugin-2.3.8.jar,
  lib/UserAgentUtils-1.8.jar,
  lib/xwork-core-2.3.8.jar,
- lib/compiler-0.8.16.jar
+ lib/compiler-0.8.16.jar,
+ lib/guava-18.0.jar
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0"
 Export-Package: com.github.mustachejava,
  com.zizibujuan.drip.server.util,
