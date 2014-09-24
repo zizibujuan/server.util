@@ -27,9 +27,11 @@ Bundle-ClassPath: .,
  lib/javaee-api-7.0.jar,
  lib/struts2-json-plugin-2.3.8.jar,
  lib/UserAgentUtils-1.8.jar,
- lib/xwork-core-2.3.8.jar
+ lib/xwork-core-2.3.8.jar,
+ lib/compiler-0.8.16.jar
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0"
-Export-Package: com.zizibujuan.drip.server.util,
+Export-Package: com.github.mustachejava,
+ com.zizibujuan.drip.server.util,
  com.zizibujuan.drip.server.util.constant,
  com.zizibujuan.drip.server.util.dao,
  com.zizibujuan.drip.server.util.dao.exception,
