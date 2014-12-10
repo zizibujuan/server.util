@@ -12,7 +12,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zizibujuan.drip.server.exception.json.JSONAccessException;
+import com.zizibujuan.drip.server.util.json.exception.JSONAccessException;
 
 /**
  * jackson适配器

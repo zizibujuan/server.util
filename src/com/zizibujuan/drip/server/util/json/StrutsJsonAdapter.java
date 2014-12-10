@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.struts2.json.JSONException;
 import org.apache.struts2.json.JSONUtil;
 
-import com.zizibujuan.drip.server.exception.json.JSONAccessException;
+import com.zizibujuan.drip.server.util.json.exception.JSONAccessException;
 
 public class StrutsJsonAdapter implements Json {
 
